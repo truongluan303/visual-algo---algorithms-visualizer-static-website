@@ -1,2 +1,1 @@
-# Algorithms-Visualizer-Website
-A static website that visualizes popular algorithms such as pathfinding &amp; sorting algorithms
+# Visual Algo - pathfinding & sorting algorithms visualizer
