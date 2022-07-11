@@ -1,10 +1,46 @@
-class LinkedQueue {
+class EmptyCollectionException extends Error {
+    constructor() {
+        super("Attempted to remove or retreive data from an empty collection!");
+    }
+}
+
+
+class SinglyLinkedListNode {
+    #value;     // store the data
+    #next;      // link to the next node
+    
+    constructor(value) {
+        this.#value = value;
+        this.#next = null;
+    }
+
+    get value() {
+        return this.#value; 
+    }
+
+    get next() {
+        return this.#next;
+    }
+
+    set value(value) {
+        this.#value = value;
+    }
+
+    set next(next) {
+        this.#next = next;
+    }
+}
+
+
+export class LQueue {
     #head;      // the head of the list
     #tail;      // the tail of the list
     #size;      // number of elements in queue
 
     constructor() {
-        this.#initialize();
+        this.#head = null;
+        this.#tail = null;
+        this.#size = 0;
     }
 
     /**
@@ -52,7 +88,9 @@ class LinkedQueue {
      * clear all values in the queue
      */
     clear() {
-        this.#initialize();
+        this.#head = null;
+        this.#tail = null;
+        this.#size = 0;
     }
 
     /**
@@ -105,16 +143,10 @@ class LinkedQueue {
     get size() {
         return this.#size;
     }
-
-    #initialize() {
-        this.#head = null;
-        this.#tail = null;
-        this.#size = 0;
-    }
 }
 
 
-class ArrayStack {
+export class AStack {
     #arr;       // the array
 
     constructor() {
@@ -168,39 +200,3 @@ class ArrayStack {
         return this.#arr.length;
     }
 }
-
-
-class SinglyLinkedListNode {
-    #value;     // store the data
-    #next;      // link to the next node
-    
-    constructor(value) {
-        this.#value = value;
-        this.#next = null;
-    }
-
-    get value() {
-        return this.#value; 
-    }
-
-    get next() {
-        return this.#next;
-    }
-
-    set value(value) {
-        this.#value = value;
-    }
-
-    set next(next) {
-        this.#next = next;
-    }
-}
-
-
-class EmptyCollectionException extends Error {
-    constructor() {
-        super("Attempted to remove or retreive data from an empty collection!");
-    }
-}
-
-module.exports = { LinkedQueue, ArrayStack };
